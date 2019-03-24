@@ -1,0 +1,38 @@
+// 下拉菜单
+.el-dropdown{
+  button{
+    padding: 10px;
+    height: 36px;
+    width: 132px;
+    span{
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      flex: 1;
+      justify-content: space-between;
+    }
+  }
+}
+.el-dropdown-menu {
+  width: 132px;
+  li{
+    color: @main-color;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    &:focus{
+      color: @main-color !important;
+    }
+    &:not(.is-disabled){
+      &:hover{
+        color: @main-color !important;
+      }
+    }
+    &.is-disabled{
+      padding: 0 20px;
+    }
+  }
+  .popper__arrow{
+    display: none;
+  }
+}

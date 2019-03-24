@@ -1,0 +1,77 @@
+// 无限下拉组件
+.node-tree{
+  .el-collapse-item{
+    .collapse-content{
+      color: #2f3747;
+    }
+    .el-collapse-item__header{
+      color: @main-color;
+      font-size: 16px;
+      padding: 0 30px;
+      border-bottom-color: @bottom-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      position: relative;
+      i{
+        cursor: pointer;
+        position: absolute;
+      }
+    }
+    .el-collapse-item__header.focusing:focus:not(:hover){
+      color: @main-color;
+    }
+  }
+  .no-child{
+    i{
+      display: none;
+    }
+  }
+  .company-title{
+    margin-left: -20px;
+  }
+  .item-active>div{
+    >.el-collapse-item__header{
+      background: rgba(102,128,216,.05);
+    }
+  }
+}
+// 常规
+.el-collapse{
+  .el-collapse-item{
+    .el-collapse-item__content{
+      padding-bottom: 0!important;
+    }
+    .el-collapse-item__header{
+      display: flex;
+      align-items: center;
+      color: @main-color;
+      justify-content: space-between;
+      border-bottom-color: @bottom-color;
+      padding: 0 30px;
+      height: 70px;
+      .title{
+        width: 100%;
+        padding-right: 20px;
+        span{
+          font-size: 15px;
+        }
+      }
+    }
+    ul.list{
+      li{
+        color: @main-color;
+        padding: 13px;
+        display: flex;
+        cursor: pointer;
+        font-size: 16px;
+        align-items: center;
+        border-bottom: 1px solid @bottom-color;
+        &.active{
+          color: @main-blue;
+        }
+      }
+    }
+  }
+}

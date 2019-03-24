@@ -1,0 +1,252 @@
+// 样式变量
+@main-color: #2f3747; // 主要信息
+//@main-black:#2f3646;// 黑色
+@main-gray:#c4cad1;// 灰色
+@info-blue:#7987a0;// info色
+@secondary-color:#7b8aa4; // 次要文字信息
+@auxiliary-color:#c5cbd2; // 辅助文字颜色
+@main-blue:#647fd8; // 主要点缀色
+@dark-blue:#43455a; // 侧边栏颜色
+@background-color:#f5f5f5; // 界面底色
+@seg-line:#43455a; // 分割线颜色
+@button-border:#e5e5e5; // 按钮描边颜色
+@ornament-blue:#409eff; // 点缀色
+@ornament-blue-light:#ecf6ff; // 点缀色
+@ornament-green:#67c23a; // 点缀色
+@ornament-green-light:#f0f9eb; // 点缀色
+@ornament-dark:#909399; // 点缀色
+@ornament-dark-light:#f4f4f5; // 点缀色
+@ornament-yellow:#ff9900; // 点缀色
+@ornament-yellow-light:#fdf6ec; // 点缀色
+@ornament-red:#f56c6c; // 点缀色
+@ornament-red-light:#fef0f0; // 点缀色
+@bottom-color:#f0f3f8;// 底部线颜色
+// 一些公共的方法
+
+// 一些字体
+.font-12{
+  font-size: 12px !important;
+}
+.font-14{
+  font-size: 14px !important;
+}
+.font-16{
+  font-size: 16px !important;
+}
+.font-18{
+  font-size: 18px !important;
+}
+.font-20{
+  font-size: 20px !important;
+}
+.font-22{
+  font-size: 22px !important;
+}
+.font-24{
+  font-size: 24px !important;
+}
+.font-26{
+  font-size: 26px !important;
+}
+.font-28{
+  font-size: 28px !important;
+}
+.font-bold{
+  font-weight: bold;
+}
+.border-radius{
+  border-radius: 100%;
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.flex{
+  display: flex;
+}
+.flex-center{
+  display: flex;
+  align-items: center;
+}
+.flex-start{
+  display: flex;
+  align-items: flex-start;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-justify{
+  display: flex;
+  justify-content: center;
+}
+.flex-justify-between{
+  display: flex;
+  justify-content: space-between;
+}
+// 公共样式 循环生成
+.margin-meta(@n, @i: 0) when (@i =< @n) {
+  .m-l-@{i} {
+    margin-left: (@i * 1px ) !important;
+  }
+  .m-t-@{i} {
+    margin-top: (@i * 1px ) !important;
+  }
+  .m-r-@{i} {
+    margin-right: (@i * 1px ) !important;
+  }
+  .m-b-@{i} {
+    margin-bottom: (@i * 1px ) !important;
+  }
+  .margin-meta(@n, (@i + 1));
+}
+.margin-meta(100);
+
+.padding-meta(@n, @i: 0) when (@i =< @n) {
+  .p-l-@{i} {
+    padding-left: (@i * 1px ) !important;
+  }
+  .p-t-@{i} {
+    padding-top: (@i * 1px ) !important;
+  }
+  .p-r-@{i} {
+    padding-right: (@i * 1px ) !important;
+  }
+  .p-b-@{i} {
+    padding-bottom: (@i * 1px ) !important;
+  }
+  .padding-meta(@n, (@i + 1));
+}
+.padding-meta(100);
+
+.width-meta(@n, @i: 0) when (@i =< @n) {
+  .w-@{i} {
+    width: (@i * 1% ) !important;
+  }
+  .width-meta(@n, (@i + 1));
+}
+.width-meta(100);
+
+// 生成正方形
+.square(@n){
+  width: @n*1px;
+  height: @n*1px;
+}
+// 生成圆形
+.circular(@n){
+  .square(@n);
+  border-radius:100%;
+}
+
+//背景图片定位
+
+.background-position(@x,@y){
+  background-position: @x*1px @y*1px;
+}
+
+// placeholder 样式修改
+.placeholder(@color) {
+  ::-webkit-input-placeholder {
+    color: @color;
+    font-weight: 300;
+  }
+  :-moz-placeholder {
+    color: @color;
+    font-weight: 300;
+  }
+  ::-moz-placeholder {
+    color: @color;
+    font-weight: 300;
+  }
+}
+.el-row{
+  width: 100%;
+}
+// 默认边框
+.border{
+  border: solid 1px #e5e5e5;
+}
+.border-bottom{
+  border-bottom: solid 1px #eef1fb;
+}
+// 默认鼠标小手
+.cursor{
+  cursor: pointer;
+}
+.el-menu{
+  border-right: none;
+}
+// 内容面板
+.panel-content{
+  background: #ffffff;
+  padding: 20px 30px 30px 30px ;
+  box-sizing: border-box;
+}
+// 内容面板标题
+.content-title{
+  color: #2f3747;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+// inline 内容面板
+.panel-content-inline{
+  background: #ffffff;
+  padding-top: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  .el-scrollbar{
+    height: 425px;
+  }
+  button{
+    padding: 7px 15px;
+    color: #2f3747;
+  }
+}
+// inline 内容面板标题
+.content-inline-title{
+  color: #2f3747;
+  font-size: 18px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+//滚动条
+// 右侧内容滚动区域
+
+  .el-table__header-wrapper {
+    overflow: visible !important;
+  }
+  .el-table--scrollable-x .el-table__body-wrapper {
+    overflow: visible !important;
+  }
+  .el-table--scrollable-y .el-table__body-wrapper {
+    overflow: visible !important;
+  }
+  .el-table {
+    overflow: visible !important;
+  }
+
+.index > .content >.el-scrollbar>.el-scrollbar__wrap{
+  overflow-x: auto;
+}
+.index > .content >.el-scrollbar>.el-scrollbar__wrap>.el-scrollbar__view{
+  padding: 0 30px 30px 30px;
+  min-height: 100%;
+}
+.el-scrollbar__bar.is-vertical{
+  top: 0;
+  bottom: 0;
+}
+body .el-table th.gutter{
+  display: table-cell!important;
+}
+// 日期选择字体颜色
+.el-range-separator,.el-range-input{
+  color: @main-color !important;
+  display: inline-flex !important;
+  align-items: center;
+  padding: 0!important;
+  justify-content: space-between;
+}

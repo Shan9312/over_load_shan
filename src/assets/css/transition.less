@@ -1,0 +1,21 @@
+// vue 动画组件 需要的class
+
+// 渐隐渐出
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .4s;
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
+// 从下移入
+.slider-enter-active, .slider-leave-active {
+  transition: all .3s cubic-bezier(0.0,0.0,0.2,1);
+  opacity: .8;
+}
+.slider-enter, .slider-leave-to {
+  opacity: 0;
+  transform: translateY(35px);
+}
+.slider-move{
+  transition: transform 1s;
+}
